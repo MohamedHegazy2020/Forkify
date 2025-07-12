@@ -62,6 +62,7 @@ export default class View {
     newElements.forEach((newEl, i) => {
       const curEl = curElements[i]; // Get the corresponding current element
       // Update changed text content
+      console.log(newEl.isEqualNode(curEl) ,{newEl, curEl});
       if (
         !newEl.isEqualNode(curEl) &&
         newEl.firstChild?.nodeValue.trim() !== ''
@@ -75,6 +76,7 @@ export default class View {
           curEl.setAttribute(attr.name, attr.value); // Update attributes
         });
       }
+
     });
       
       // Note: This method only updates the text content and attributes of the elements,
