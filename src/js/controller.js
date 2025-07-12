@@ -3,6 +3,7 @@ import recipeView from './views/recipeView.js'; // Importing the recipe view
 import searchView from './views/searchView.js';
 import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
+import bookmarksView from './views/bookmarksView.js';
 import 'core-js/stable'; // For polyfilling ES6 features
 import 'regenerator-runtime/runtime'; // For async/await support
 
@@ -17,7 +18,7 @@ const controlRecipe = async function () {
 
     recipeView.renderSpinner();
     //0) update results view to mark selected search result
-    
+
     resultsView.update(model.getSearchResultsPage());
 
     // 1) loading recipe
@@ -26,9 +27,10 @@ const controlRecipe = async function () {
 
     // 2) rendering recipe
     const { recipe } = model.state; // Get the recipe from the model
-
+   
     recipeView.render(recipe); // Render the recipe using the recipe view
-    recipeView.addHandlerUpdateServings(controlServings); // Add event listener for updating servings
+    // bookmarksView.render(model.state.bookmarks);
+    
   } catch (error) {
     recipeView.renderError(); // Render an error message if something goes wrong
   }
@@ -59,8 +61,21 @@ const controlServings = function (newServings) {
   model.updateServings(newServings); // Update the servings in the model
   recipeView.update(model.state.recipe); // Re-render the recipe view with the updated servings
 };
+
+const controlBookmark = function () {
+  const { recipe } = model.state;
+  if (!recipe.bookmarked) model.addBookmark(recipe);
+  else model.deleteBookmark(recipe.id);
+
+  recipeView.update(recipe);
+
+  bookmarksView.render(model.state.bookmarks);
+};
+
 const init = function () {
   recipeView.addHandlerRender(controlRecipe); // Add event listener for rendering the recipe
+  recipeView.addHandlerUpdateServings(controlServings); // Add event listener for updating servings
+  recipeView.addHandlerAddBookmark(controlBookmark); // Add event listener for adding bookmarks
   searchView.addHandlerSearch(controlSearchResults); // Add event listener for searching recipes
   paginationView.addHandlerClick(controlPagination);
 };

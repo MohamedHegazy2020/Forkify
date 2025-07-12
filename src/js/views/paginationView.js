@@ -79,7 +79,7 @@ class PaginationView extends View {
       const button = event.target.closest('.btn--inline'); // Get the closest button element
       if (!button) return; // If no button is clicked, exit the function
         const goToPage = +button.dataset.goto; // Get the page number from the button's data attribute
-        console.log('goToPage', goToPage); // Debugging line to check the page number
+        
       handler(goToPage); // Call the handler with the page number
     });
   }

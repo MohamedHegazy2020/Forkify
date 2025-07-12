@@ -1,6 +1,4 @@
-import View from "./view";
-
-
+import View from './view';
 
 class ResultsView extends View {
   _parentElement = document.querySelector('.results');
@@ -8,13 +6,19 @@ class ResultsView extends View {
   _message = '';
 
   _generateMarkup() {
-
-    const id = window.location.hash.slice(1);
+   
     return this._data
-      .map(result => {
-        return `
+      .map(result => this._generateMarkupPreview(result))
+      .join('');
+  }
+
+  _generateMarkupPreview(result) {
+     const id = window.location.hash.slice(1);
+    return `
           <li class="preview">
-            <a class="preview__link ${result.id === id ? 'preview__link--active' : ''}" href="#${result.id}">
+            <a class="preview__link ${
+              result.id === id ? 'preview__link--active' : ''
+            }" href="#${result.id}">
               <figure class="preview__fig">
                 <img src="${result.image_url}" alt="${result.title}" />
               </figure>
@@ -25,13 +29,7 @@ class ResultsView extends View {
               </div>
             </a>
           </li>`;
-      })
-          .join('');
-      
   }
-    
-
-
 }
 
 export default new ResultsView();
