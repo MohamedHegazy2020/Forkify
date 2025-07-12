@@ -66,9 +66,7 @@ const controlBookmark = function () {
   const { recipe } = model.state;
   if (!recipe.bookmarked) model.addBookmark(recipe);
   else model.deleteBookmark(recipe.id);
-
   recipeView.update(recipe);
-
   bookmarksView.render(model.state.bookmarks);
 };
 
