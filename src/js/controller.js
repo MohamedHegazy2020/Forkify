@@ -21,16 +21,16 @@ const controlRecipe = async function () {
 
     resultsView.update(model.getSearchResultsPage());
 
+    bookmarksView.render(model.state.bookmarks);
     // 1) loading recipe
 
     await model.loadRecipe(id); // Load the recipe using the model
 
     // 2) rendering recipe
     const { recipe } = model.state; // Get the recipe from the model
-   
+
     recipeView.render(recipe); // Render the recipe using the recipe view
     // bookmarksView.render(model.state.bookmarks);
-    
   } catch (error) {
     recipeView.renderError(); // Render an error message if something goes wrong
   }

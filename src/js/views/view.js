@@ -2,11 +2,13 @@ import icons from 'url:../../img/icons.svg'; // Parcel 2 requires this to be imp
 
 export default class View {
   _data;
-  render(data) {
+  render(data, render = true) {
     if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderError(); // Check if data is provided
     this._data = data;
     const markup = this._generateMarkup();
+
+    if (!render) return markup;
     this._clear(); // Clear the parent element before rendering new content
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
@@ -52,7 +54,6 @@ export default class View {
   }
 
   update(data) {
-   
     this._data = data; // Update the data in the view instance
     const newMarkup = this._generateMarkup(); // Generate new markup
     const newDOM = document.createRange().createContextualFragment(newMarkup); // Create a new DOM fragment from the markup
@@ -74,11 +75,9 @@ export default class View {
           curEl.setAttribute(attr.name, attr.value); // Update attributes
         });
       }
-
     });
-      
-      // Note: This method only updates the text content and attributes of the elements,
+
+    // Note: This method only updates the text content and attributes of the elements,
     // it does not re-render the entire view. This is useful for performance optimization
-    
   }
 }
