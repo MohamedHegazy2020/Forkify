@@ -52,8 +52,7 @@ export default class View {
   }
 
   update(data) {
-    if (!data || (Array.isArray(data) && data.length === 0))
-      return this.renderError(); // Check if data is provided
+   
     this._data = data; // Update the data in the view instance
     const newMarkup = this._generateMarkup(); // Generate new markup
     const newDOM = document.createRange().createContextualFragment(newMarkup); // Create a new DOM fragment from the markup
@@ -62,7 +61,6 @@ export default class View {
     newElements.forEach((newEl, i) => {
       const curEl = curElements[i]; // Get the corresponding current element
       // Update changed text content
-      console.log(newEl.isEqualNode(curEl) ,{newEl, curEl});
       if (
         !newEl.isEqualNode(curEl) &&
         newEl.firstChild?.nodeValue.trim() !== ''
