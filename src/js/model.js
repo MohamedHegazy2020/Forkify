@@ -13,7 +13,7 @@ export const state = {
 // Function to load a recipe by ID
 export const loadRecipe = async function (id) {
   try {
-    const data = await getJSON(`${API_URL}/${id}`);
+    const data = await getJSON(`${API_URL}/${id}?key=${API_KEY}`);
 
     state.recipe = data.data.recipe;
 
@@ -28,7 +28,7 @@ export const loadRecipe = async function (id) {
 export const loadSearchResults = async function (query) {
   try {
     if (!query) throw new Error('No search query provided');
-    const data = await getJSON(`${API_URL}?search=${query}`);
+    const data = await getJSON(`${API_URL}?search=${query}&key=${API_KEY}`);
 
     state.search.query = query;
     state.search.results = data.data.recipes;

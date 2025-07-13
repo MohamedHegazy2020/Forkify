@@ -7,8 +7,6 @@ class RecipeView extends View {
   _errorMessage = 'We could not find that recipe. Please try another one!';
   _message = '';
 
- 
-
   addHandlerRender(handler) {
     ['load', 'hashchange'].forEach(event =>
       window.addEventListener(event, handler)
@@ -17,11 +15,10 @@ class RecipeView extends View {
   addHandlerUpdateServings(handler) {
     this._parentElement.addEventListener('click', function (e) {
       const btn = e.target.closest('.btn--update-servings');
-    
-      if (!btn) return;// closure
+
+      if (!btn) return; // closure
       const updateTo = +btn.dataset.updateTo;
       if (updateTo > 0) handler(updateTo);
-
     });
   }
 
@@ -31,7 +28,6 @@ class RecipeView extends View {
       if (!btn) return;
       handler();
     });
-
   }
   _generateMarkup() {
     // This method can be used to generate the markup if needed
@@ -82,12 +78,16 @@ class RecipeView extends View {
                 </div>
               </div>
     
-              <div class="recipe__user-generated">
-                
+              <div class="recipe__user-generated ${this._data.key ? '' : 'hidden'}">
+                 <svg class="">
+                  <use href="${icons}#icon-user"></use>
+                </svg>
               </div>
               <button class="btn--round btn--bookmark">
                 <svg class="">
-                  <use href="${icons}#icon-bookmark${this._data.bookmarked ? '-fill' : ''}"></use>
+                  <use href="${icons}#icon-bookmark${
+      this._data.bookmarked ? '-fill' : ''
+    }"></use>
                 </svg>
               </button>
             </div>
@@ -98,7 +98,7 @@ class RecipeView extends View {
                 ${this._data.ingredients
                   .map(
                     ing => this._generateMarkupIngredient(ing)
-      // Generate markup for each ingredient
+                    // Generate markup for each ingredient
                   )
                   .join('')}
               </ul>
@@ -128,8 +128,6 @@ class RecipeView extends View {
   }
 
   _generateMarkupIngredient(ing) {
-   
-  
     // Handle case where quantity is undefined
     return `<li class="recipe__ingredient">
                     <svg class="recipe__icon">
@@ -146,8 +144,6 @@ class RecipeView extends View {
                     </div>
                   </li>`;
   }
-
- 
 }
 
 export default new RecipeView();

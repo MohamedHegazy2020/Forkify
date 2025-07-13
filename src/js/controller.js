@@ -79,18 +79,21 @@ const controlBookmarks = function () {
 
 const controlAddRecipe = async function (newRecipe) {
   try {
-
     addRecipeView.renderSpinner();
     await model.uploadRecipe(newRecipe);
     recipeView.render(model.state.recipe);
 
-    addRecipeView.renderMessage('Recipe was successfully uploaded.');
+    addRecipeView.renderMessage();
+    bookmarksView.render(model.state.bookmarks);
+    // change ID in URL
+    window.history.pushState(null, '', `#${model.state.recipe.id}`);
+    
+
     setTimeout(() => {
       addRecipeView.toggleWindow();
-
-    },MODAL_CLOSE_SEC*1000)
+    }, MODAL_CLOSE_SEC * 1000);
   } catch (error) {
-    console.error('error', {error});
+    console.error('error', { error });
     addRecipeView.renderError(error.message);
   }
 };
@@ -100,9 +103,8 @@ const init = function () {
   recipeView.addHandlerUpdateServings(controlServings); // Add event listener for updating servings
   recipeView.addHandlerAddBookmark(controlAddBookmark); // Add event listener for adding bookmarks
   searchView.addHandlerSearch(controlSearchResults); // Add event listener for searching recipes
-  paginationView.addHandlerClick(controlPagination);// Add event listener for pagination
-  addRecipeView.addHandlerUpload(controlAddRecipe);// Add event listener for uploading recipes
-
+  paginationView.addHandlerClick(controlPagination); // Add event listener for pagination
+  addRecipeView.addHandlerUpload(controlAddRecipe); // Add event listener for uploading recipes
 };
 
 init();
