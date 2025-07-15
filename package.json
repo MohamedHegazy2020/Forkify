@@ -9,7 +9,12 @@
     "start": "parcel index.html",
     "build": "parcel build index.html "
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohamedHeagzy/Forkify.git"
+  },
   "devDependencies": {
+    "@parcel/transformer-inline-string": "^2.15.4",
     "@parcel/transformer-sass": "^2.15.4",
     "parcel": "^2.15.4",
     "sass": "^1.89.2"
