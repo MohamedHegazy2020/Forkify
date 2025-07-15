@@ -4,6 +4,7 @@
   "description": "Recipe Application",
   "license": "ISC",
   "author": "Mohamed Heagzy",
+  "default": "index.html",
   "type": "module",
   "scripts": {
     "start": "parcel index.html",
