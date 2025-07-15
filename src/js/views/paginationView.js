@@ -1,4 +1,4 @@
-import icon from 'url:../../img/icons.svg'; // Parcel 2 requires this to be imported
+import icon from '../../img/icons.svg'; // Parcel 2 requires this to be imported
 import View from './view.js';
 
 class PaginationView extends View {
