@@ -29,10 +29,13 @@
   font-size: 1.5rem;
   font-weight: 600;
 
-  svg {
+  i {
     height: 2.25rem;
     width: 2.25rem;
     fill: currentColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -69,11 +72,14 @@
   align-items: center;
   transition: all 0.2s;
 
-  svg {
+  i {
     height: 1.6rem;
     width: 1.6rem;
     fill: currentColor;
     margin: 0 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   span {
@@ -112,10 +118,14 @@
     outline: none;
   }
 
-  svg {
+  i {
     height: 2.5rem;
     width: 2.5rem;
-    fill: #fff;
+    color: #fff;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -126,11 +136,14 @@
   background: none;
   cursor: pointer;
 
-  svg {
+  i {
     height: 100%;
     width: 100%;
     fill: $color-primary;
     transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &:focus {
@@ -171,11 +184,21 @@
   margin: 5rem auto;
   text-align: center;
 
-  svg {
+  i {
     height: 6rem;
     width: 6rem;
-    fill: $color-primary;
-    animation: rotate 2s infinite linear;
+    color: $color-primary;
+    font-size: 6rem;
+  }
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
 
@@ -194,14 +217,17 @@
   max-width: 40rem;
   margin: 0 auto;
   padding: 5rem 4rem;
-
   display: flex;
 
-  svg {
+  i {
     height: 3rem;
     width: 3rem;
-    fill: $color-primary;
+    font-size: 3rem;
+    color: $color-primary;
     transform: translateY(-0.3rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   p {

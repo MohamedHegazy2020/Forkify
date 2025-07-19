@@ -9,7 +9,10 @@
       rel="stylesheet"
     />
     <link rel="shortcut icon" href="src/img/favicon.png" type="image/x-icon" />
-
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
     <link rel="stylesheet" href="src/sass/main.scss" />
     <script type="module" defer src="src/js/controller.js"></script>
 
@@ -27,9 +30,10 @@
             placeholder="Search over 1,000,000 recipes..."
           />
           <button class="btn search__btn">
-            <svg class="search__icon">
+            <i class="fa fa-search"></i>
+            <!-- <svg class="search__icon">
               <use href="src/img/icons.svg#icon-search"></use>
-            </svg>
+            </svg> -->
             <span>Search</span>
           </button>
         </form>
@@ -38,26 +42,24 @@
           <ul class="nav__list">
             <li class="nav__item">
               <button class="nav__btn nav__btn--add-recipe">
-                <svg class="nav__icon">
+                <i class="fas fa-edit nav__icon"></i>
+                <!-- <svg class="nav__icon">
                   <use href="src/img/icons.svg#icon-edit"></use>
-                </svg>
+                </svg> -->
                 <span>Add recipe</span>
               </button>
             </li>
             <li class="nav__item">
               <button class="nav__btn nav__btn--bookmarks">
-                <svg class="nav__icon">
-                  <use href="src/img/icons.svg#icon-bookmark"></use>
-                </svg>
+                <i class="fas fa-bookmark nav__icon"></i>
+                
                 <span>Bookmarks</span>
               </button>
               <div class="bookmarks">
                 <ul class="bookmarks__list">
                   <div class="message">
                     <div>
-                      <svg>
-                        <use href="src/img/icons.svg#icon-smile"></use>
-                      </svg>
+                      <i class="fa-regular fa-face-smile"></i>
                     </div>
                     <p>
                       No bookmarks yet. Find a nice recipe and bookmark it :)
@@ -86,7 +88,6 @@
 
       <div class="search-results">
         <ul class="results">
-        
           <!-- 
           <li class="preview">
             <a class="preview__link preview__link--active" href="#23456">
@@ -125,21 +126,18 @@
         <p class="copyright">
           &copy; Copyright by
           <a
-            class="twitter-link"
+            class="portfolio-link"
             target="_blank"
-            href="https://twitter.com/jonasschmedtman"
-            >Jonas Schmedtmann</a
-          >. Use for learning or your portfolio. Don't use to teach. Don't claim
-          as your own.
+            href="https://mohamedhegazy.netlify.app/"
+            >Mohamed Hegazy</a
+          > This project is for demonstration purposes only and is not intended for commercial use.
         </p>
       </div>
 
       <div class="recipe">
         <div class="message">
           <div>
-            <svg>
-              <use href="src/img/icons.svg#icon-smile"></use>
-            </svg>
+           <i class="fa-regular fa-face-smile"></i>
           </div>
           <p>Start by searching for a recipe or an ingredient. Have fun!</p>
         </div>

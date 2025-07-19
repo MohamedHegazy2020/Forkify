@@ -37,12 +37,44 @@
       outline: none;
     }
 
+    &::-webkit-input-placeholder {
+      color: $color-grey-light-3;
+    }
+
+    &::-moz-placeholder {
+      color: $color-grey-light-3;
+    }
+
+    &:-ms-input-placeholder {
+      color: $color-grey-light-3;
+    }
+
+    &::-ms-input-placeholder {
+      color: $color-grey-light-3;
+    }
+
     &::placeholder {
       color: $color-grey-light-3;
     }
 
     @media only screen and (max-width: $bp-medium) {
       width: auto;
+
+      &::-webkit-input-placeholder {
+        color: white;
+      }
+
+      &::-moz-placeholder {
+        color: white;
+      }
+
+      &:-ms-input-placeholder {
+        color: white;
+      }
+
+      &::-ms-input-placeholder {
+        color: white;
+      }
 
       &::placeholder {
         color: white;
@@ -86,12 +118,17 @@
     display: flex;
     align-items: center;
 
-    svg {
+    i {
       height: 2.4rem;
       width: 2.4rem;
-      fill: $color-primary;
+      font-size: 2rem;
+      color: $color-primary;
       margin-right: 0.7rem;
       transform: translateY(-1px);
+      display: flex;
+      justify-content: center;
+      align-items:center ;
+      vertical-align: middle;
     }
 
     &:focus {

@@ -27,9 +27,8 @@ class PaginationView extends View {
                   currentPage + 1
                 }">
                     <span>Page ${currentPage + 1}</span>
-                    <svg class="search__icon">
-                        <use href="${icon}#icon-arrow-right"></use>
-                    </svg>
+                    <i class="fas fa-arrow-right"></i>
+                   
                 </button>
             `;
     }

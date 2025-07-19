@@ -30,7 +30,8 @@
     width: 100%;
     display: block;
     height: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 
   &__title {
@@ -84,8 +85,12 @@
   &__info-icon {
     height: 2.35rem;
     width: 2.35rem;
-    fill: $color-primary;
+    color: $color-primary;
+    font-size:2rem;
     margin-right: 1.15rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__info-data {
@@ -112,10 +117,14 @@
     margin-left: auto;
     margin-right: 1.75rem;
 
-    svg {
+    .fa ,.fas {
       height: 2.25rem;
       width: 2.25rem;
-      fill: $color-primary;
+      color: $color-primary;
+      font-size:2rem;
+       display:flex;
+    justify-content: center;
+    align-items: center;
     }
   }
 
@@ -145,10 +154,14 @@
   &__icon {
     height: 2rem;
     width: 2rem;
-    fill: $color-primary;
+    color: $color-primary;
+    font-size: 2rem;
     margin-right: 1.1rem;
     flex: 0 0 auto;
     margin-top: 0.1rem;
+     display:flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__quantity {

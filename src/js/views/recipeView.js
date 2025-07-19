@@ -44,18 +44,16 @@ class RecipeView extends View {
     
         <div class="recipe__details">
           <div class="recipe__info">
-                <svg class="recipe__info-icon">
-                  <use href="${icons}#icon-clock"></use>
-                </svg>
+          <i class="fas fa-stopwatch recipe__info-icon"></i>
+               
                 <span class="recipe__info-data recipe__info-data--minutes">${
                   this._data.cooking_time
                 }</span>
                 <span class="recipe__info-text">minutes</span>
           </div>
           <div class="recipe__info">
-                <svg class="recipe__info-icon">
-                  <use href="${icons}#icon-users"></use>
-                </svg>
+              <i class="fas fa-users recipe__info-icon"></i>
+               
                 <span class="recipe__info-data recipe__info-data--people">${
                   this._data.servings
                 }</span>
@@ -64,31 +62,29 @@ class RecipeView extends View {
                   <button class="btn--tiny btn--update-servings" data-update-to="${
                     this._data.servings - 1
                   }">
-                    <svg>
-                      <use href="${icons}#icon-minus-circle"></use>
-                    </svg>
+                  <i class="fas recipe__info-icon fa-minus-circle "></i> 
+                   
                   </button>
                   <button class="btn--tiny btn--update-servings" data-update-to="${
                     this._data.servings + 1
                   }">
-                    <svg>
-                      <use href="${icons}#icon-plus-circle"></use>
-                    </svg>
+                  <i class="fas recipe__info-icon fa-plus-circle"></i>
                   </button>
                 </div>
               </div>
     
-              <div class="recipe__user-generated ${this._data.key ? '' : 'hidden'}">
-                 <svg class="">
-                  <use href="${icons}#icon-user"></use>
-                </svg>
+              <div class="recipe__user-generated ${
+                this._data.key ? '' : 'hidden'
+              }">
+                 <i class="fas fa-user"></i>  
               </div>
               <button class="btn--round btn--bookmark">
-                <svg class="">
-                  <use href="${icons}#icon-bookmark${
-      this._data.bookmarked ? '-fill' : ''
-    }"></use>
-                </svg>
+              <i class=" fa-bookmark${
+                this._data.bookmarked ? ' fas' : ' fa-regular '
+              }"></i>
+
+              
+               
               </button>
             </div>
     
@@ -119,9 +115,7 @@ class RecipeView extends View {
                 target="_blank"
               >
                 <span>Directions</span>
-                <svg class="search__icon">
-                  <use href="${icons}#icon-arrow-right"></use>
-                </svg>
+                <i class="fas fa-arrow-right"></i>
               </a>
             </div>
         `;
@@ -130,9 +124,8 @@ class RecipeView extends View {
   _generateMarkupIngredient(ing) {
     // Handle case where quantity is undefined
     return `<li class="recipe__ingredient">
-                    <svg class="recipe__icon">
-                      <use href="${icons}#icon-check"></use>
-                    </svg>
+    <i class="fas fa-check recipe__icon"></i>
+                  
                     <div class="recipe__quantity">${
                       new Fraction(ing.quantity).toString() === '0'
                         ? ''

@@ -18,9 +18,7 @@ export default class View {
   renderSpinner() {
     const markup = `
         <div class="spinner">
-            <svg>
-                <use href="${icons}#icon-loader"></use>
-            </svg>
+          <i class="fa-solid fa-spinner fa-spin-pulse"></i>
         </div> `;
     this._clear(); // Clear previous content
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
@@ -30,9 +28,8 @@ export default class View {
     const markup = `
             <div class="error">
                 <div>
-                    <svg>
-                        <use href="${icons}#icon-alert-triangle"></use>
-                    </svg>
+                <i class="fas fa-exclamation-triangle"></i>
+                
                 </div>
                 <p>${message}</p>
             </div>`;
